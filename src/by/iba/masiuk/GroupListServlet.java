@@ -1,7 +1,8 @@
 package by.iba.masiuk;
 
+import by.iba.masiuk.dao.PersonDao;
 import by.iba.masiuk.list.ListService;
-import by.iba.masiuk.list.Person;
+import by.iba.masiuk.model.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,25 +14,27 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/GroupServlet", name = "GroupServlet")
 public class GroupListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private ListService todoService = new ListService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        PersonDao daoPerson = new PersonDao();
         String nname = request.getParameter("nname");
         String nphone = request.getParameter("nphone");
         String nemail= request.getParameter("nemail");
-        if (("".equals(nname))|| ("".equals(nphone)) || ("".equals(nemail))) {
+        if ((nname==null )|| (nphone == null) || (nemail == null)) {
             request.setAttribute("errorMessage", "Заполните все поля");
         } else {
-            ListService.addPerson(new Person(nname, nphone,nemail));
+            daoPerson.insertPerson(new Person(nname, nphone, nemail));
         }
-        request.setAttribute("group", ListService.retrieveList());
+        request.setAttribute("group", daoPerson.getPersons());
         request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request,
                 response);
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("group",
-                ListService.retrieveList());
+        request.setCharacterEncoding("UTF-8");
+        PersonDao daoPerson = new PersonDao();
+        request.setAttribute("group", daoPerson.getPersons());
         request.getRequestDispatcher("/WEB-INF/views/welcome.jsp")
                 .forward(request, response);
     }

@@ -1,4 +1,4 @@
-package by.iba.masiuk.list;
+package by.iba.masiuk.model;
 
 public class Person {
     private String name;
@@ -24,6 +24,9 @@ public class Person {
         phone = person.phone;
         email = person.email;
     }
+
+    public Person() {
+            }
 
     public String getName() {
         return name;

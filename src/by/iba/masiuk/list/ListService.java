@@ -1,5 +1,7 @@
 package by.iba.masiuk.list;
 
+import by.iba.masiuk.model.Person;
+
 import java.util.ArrayList;
 import java.util.List;
 

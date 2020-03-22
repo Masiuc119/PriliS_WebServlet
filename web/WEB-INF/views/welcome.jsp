@@ -11,7 +11,7 @@
 <head>
     <title>Welcome</title>
     <!-- Bootstrap core CSS -->
-    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           rel="stylesheet">
     <style>
         .footer {
@@ -48,7 +48,7 @@
     </div>
 </nav>
 <div class="container">
-    <H2>Welcome ${name}</H2>
+    <H2>Welcome ${username}</H2>
     <table border="1">
         <caption>Список вашей группы</caption>
         <tr>
@@ -77,7 +77,7 @@
         <p>2019 Все права защищены</p>
     </div>
 </footer>
-<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
