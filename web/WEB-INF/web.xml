@@ -9,6 +9,6 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     <!--<servlet-class>by.iba.masiuk.LoginServlet</servlet-class>-->
     <!--</servlet>-->
     <welcome-file-list>
-        <welcome-file>LoginServlet</welcome-file>
+        <welcome-file>/views/login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
