@@ -3,6 +3,7 @@ package by.iba.masiuk.builder;
 public class BuilderFactory {
     private static final String USER = "user";
     private static final String PERSON = "person";
+    private static final String MESSAGE= "Unknown Builder name!";
     public static Builder create(String builderName) {
         switch (builderName) {
             case USER: {
@@ -12,7 +13,7 @@ public class BuilderFactory {
                 return new PersonBuilder();
             }
             default:
-                throw new IllegalArgumentException("Unknown Builder name!");
+                throw new IllegalArgumentException(MESSAGE);
         }
     }
 }

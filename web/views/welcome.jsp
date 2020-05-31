@@ -1,21 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alex7
-  Date: 29.02.2020
-  Time: 10:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Welcome</title>
+    <title> Title</title>
     <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
           rel="stylesheet">
     <style>
         .footer {
-            position: relative;
+            position: absolute;
             bottom: 0;
             width: 100%;
             height: 60px;
@@ -40,17 +33,19 @@
             <li class="active"><a href="#">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="LoginServlet">Login</a></li>
+            <li><a
+                    href="${pageContext.request.contextPath}/controller?command=login_page">Login</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="LogoutServlet">Logout</a></li>
+            <li><a
+                    href="${pageContext.servletContext.contextPath}/controller?command=sign_out">Logout</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <H2>Добро пожаловать ${username}</H2>
+    <H2>Welcome ${username}</H2>
+    <caption>Список вашей группы</caption>
     <table border="1">
-        <caption>Список вашей группы</caption>
         <tr>
             <th>Имя</th>
             <th>Телефон</th>
@@ -64,20 +59,18 @@
         </c:forEach>
     </table>
     <p><font color="red">${errorMessage}</font></p>
-    <form method="POST" action="GroupServlet">
+    <form method="POST"
+          action="${pageContext.servletContext.contextPath}/controller?command=add_new_perso
+n">
         Новый :
         <p> Введите имя <input name="nname" type="text" /> </p>
         <p> Введите телефон <input name="nphone" type="text" /> </p>
         <p> Введите email <input name="nemail" type="text" /> </p>
-        <input name="add" type="submit" />
+        <input class ="button-main-page" value="Добавить" type="submit" />
     </form>
 </div>
-<footer class="footer">
-    <div class="container">
-        <p>2019 Все права защищены</p>
-    </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<p> ${lastdate}</p>
+<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

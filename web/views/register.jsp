@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alex7
-  Date: 16.03.2020
-  Time: 21:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +5,8 @@
 </head>
 <body>
 <p><font color="red">${errorRegister}</font></p>
-<form action="RegisterServlet" method="POST">
+<form
+        action="${pageContext.servletContext.contextPath}/controller?command=register_new_user" method="POST">
     <p> Регистрация нового пользователя </p>
     <p> Введите имя : <input name="newLoginName" type="text" />
     </p>
